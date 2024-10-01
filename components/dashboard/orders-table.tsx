@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { GetOrders, GetTotalOrders } from "@/lib/actions/orders";
+import { GetOrders } from "@/lib/actions/orders";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { MoveUpRight } from "lucide-react";
@@ -22,14 +22,12 @@ export default async function OrdersTable({
 }) {
   const items_per_page = 7;
 
-  const [totalOrders, orders] = await Promise.all([
-    GetTotalOrders(),
+  const [orders] = await Promise.all([
     GetOrders(searchQuery, page, items_per_page),
   ]);
 
   console.log(orders);
 
-  const totalPages = Math.ceil(totalOrders / items_per_page);
   return (
     <Card className="w-full shadow-none bg-background">
       <CardHeader>

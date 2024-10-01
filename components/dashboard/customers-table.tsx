@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import {
   Table,
   TableBody,
@@ -8,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { GetCustomers, GetTotalCustomers } from "@/lib/actions/customers";
+import { GetCustomers } from "@/lib/actions/customers";
 import { MoveUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
@@ -22,8 +21,7 @@ export default async function CustomersTable({
 }) {
   const items_per_page = 7;
 
-  const [totalCustomers, customers] = await Promise.all([
-    GetTotalCustomers(),
+  const [customers] = await Promise.all([
     GetCustomers(searchQuery, page, items_per_page),
   ]);
 

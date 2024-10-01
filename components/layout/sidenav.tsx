@@ -4,9 +4,6 @@ import {
   UsersRound,
   HandPlatter,
   HousePlus,
-  UserRound,
-  MessageSquareWarning,
-  FilePlus,
 } from "lucide-react";
 import { ThemeToggler } from "../themes/theme-toggler";
 import { signout } from "@/lib/actions/auth";

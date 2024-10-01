@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import {
   Table,
@@ -16,7 +10,6 @@ import {
 } from "@/components/ui/table";
 import { GetCustomers, GetTotalCustomers } from "@/lib/actions/customers";
 import { MoveUpRight } from "lucide-react";
-import { MoreHorizontal } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
@@ -34,7 +27,6 @@ export default async function CustomersTable({
     GetCustomers(searchQuery, page, items_per_page),
   ]);
 
-  const totalPages = Math.ceil(totalCustomers / items_per_page);
   return (
     <Card className="w-full shadow-none bg-background">
       <CardHeader>

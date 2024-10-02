@@ -2,8 +2,7 @@ import {
   LogOut,
   LayoutDashboard,
   UsersRound,
-  HandPlatter,
-  HousePlus,
+  WashingMachine
 } from "lucide-react";
 import { ThemeToggler } from "../themes/theme-toggler";
 import { signout } from "@/lib/actions/auth";
@@ -71,12 +70,12 @@ export const adminLinks = [
   {
     name: "Orders",
     href: "/orders",
-    icon: <HousePlus />,
+    icon: <WashingMachine />,
   },
   {
     name: "Customers",
     href: "/customers",
-    icon: <HandPlatter />,
+    icon: <UsersRound />,
   },
   {
     name: "Users",

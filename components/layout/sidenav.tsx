@@ -2,7 +2,8 @@ import {
   LogOut,
   LayoutDashboard,
   UsersRound,
-  WashingMachine
+  WashingMachine,
+  ClipboardList,
 } from "lucide-react";
 import { ThemeToggler } from "../themes/theme-toggler";
 import { signout } from "@/lib/actions/auth";
@@ -17,7 +18,9 @@ export default function Sidenav() {
         <div className="flex h-14 items-center border-b px-4 py-5 lg:h-[60px] lg:px-6 ">
           <Link href="/" className="flex items-center gap-2 font-semibold">
             <Image src={favicon} alt="logo" width={30} height={30} />
-            <span className="ml-2 text-lg text-primary font-semibold">Laundry Shop</span>
+            <span className="ml-2 text-lg text-primary font-semibold">
+              Laundry Shop
+            </span>
           </Link>
         </div>
         <div className="flex-1">
@@ -68,9 +71,14 @@ export const adminLinks = [
     icon: <LayoutDashboard />,
   },
   {
+    name: "Products",
+    href: "/products",
+    icon: <WashingMachine />,
+  },
+  {
     name: "Orders",
     href: "/orders",
-    icon: <WashingMachine />,
+    icon: <ClipboardList />,
   },
   {
     name: "Customers",

@@ -61,6 +61,7 @@ export default async function OrdersTable({
               <TableHead className="table-cell">Soaps</TableHead>
               <TableHead className="table-cell">Fabcons</TableHead>
               <TableHead className="table-cell">Price</TableHead>
+              <TableHead className="table-cell">Tracking No.</TableHead>
               <TableHead className="table-cell">Status</TableHead>
               <TableHead className="table-cell">Created At</TableHead>
               <TableHead>
@@ -82,6 +83,7 @@ export default async function OrdersTable({
                 <TableCell className="font-normal">{item.soaps}</TableCell>
                 <TableCell className="font-normal">{item.fabcons}</TableCell>
                 <TableCell className="font-normal">₱{item.price}</TableCell>
+                <TableCell>{item.id}</TableCell>
                 <TableCell className="font-normal">
                   <Badge>{item.status}</Badge>
                 </TableCell>
@@ -100,7 +102,7 @@ export default async function OrdersTable({
                       <DropdownMenuItem>
                         <UpdateButton id={item.id} />
                       </DropdownMenuItem>
-                      <DropdownMenuSeparator/>
+                      <DropdownMenuSeparator />
                       <DropdownMenuItem>
                         <DeleteButton id={item.id} />
                       </DropdownMenuItem>

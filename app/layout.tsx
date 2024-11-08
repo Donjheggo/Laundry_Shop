@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/themes/theme-provider";
 import { Bounce, ToastContainer } from "react-toastify";
-import { createClient } from "@/lib/supabase/server";
-import UserLayout from "@/components/layout/layout";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
@@ -23,14 +21,12 @@ export const metadata: Metadata = {
   description: "Inventory and Sales Management",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const supabase = createClient();
-  const { data } = await supabase.auth.getUser();
-
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -42,7 +38,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {data?.user ? <UserLayout>{children}</UserLayout> : children}
+          {children}
           <ToastContainer
             position="bottom-left"
             autoClose={5000}

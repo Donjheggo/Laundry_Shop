@@ -203,3 +203,21 @@ export async function TotalClaimedOrders() {
   }
 }
 
+export async function GetMyOrder(id: string) {
+  try {
+    const supabase = createClient();
+    const { data, error } = await supabase
+      .from("orders")
+      .select(`*, customer_id(*)`)
+      .eq("id", id)
+      .single();
+
+    if (error) {
+      return { error: error.message };
+    }
+
+    return data;
+  } catch (error) {
+    return { error: error };
+  }
+}

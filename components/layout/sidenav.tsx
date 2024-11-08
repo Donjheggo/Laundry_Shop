@@ -27,6 +27,21 @@ export default function Sidenav() {
           <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
             <div className="mt-2">
               <p className="text-sm font-medium text-muted-foreground pb-2 max-w-[248px] truncate">
+                User
+              </p>
+              {userLinks.map((item, index) => (
+                <Link
+                  href={item.href}
+                  key={index}
+                  className="flex items-center gap-2 hover:bg-muted rounded-md p-2"
+                >
+                  {item.icon}
+                  <h1 className="text-md">{item.name}</h1>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-2">
+              <p className="text-sm font-medium text-muted-foreground pb-2 max-w-[248px] truncate">
                 Admin
               </p>
               {adminLinks.map((item, index) => (
@@ -64,30 +79,38 @@ export default function Sidenav() {
   );
 }
 
+export const userLinks = [
+  {
+    name: "Track Laundry",
+    href: "/",
+    icon: <WashingMachine />,
+  },
+];
+
 export const adminLinks = [
   {
     name: "Dashboard",
-    href: "/",
+    href: "/dashboard",
     icon: <LayoutDashboard />,
   },
   {
     name: "Products",
-    href: "/products",
+    href: "/dashboard/products",
     icon: <WashingMachine />,
   },
   {
     name: "Orders",
-    href: "/orders",
+    href: "/dashboard/orders",
     icon: <ClipboardList />,
   },
   {
     name: "Customers",
-    href: "/customers",
+    href: "/dashboard/customers",
     icon: <UsersRound />,
   },
   {
     name: "Users",
-    href: "/users",
+    href: "/dashboard/users",
     icon: <UsersRound />,
   },
 ];

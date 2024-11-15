@@ -32,7 +32,7 @@ export default function UpdateProductForm({ item }: { item: ProductsT }) {
       if (error) {
         toast.error(error.toString());
       }
-      router.push("/products");
+      router.push("/dashboard/products");
     } catch (error) {
       toast.error("There was an unexpected error updating.");
     } finally {
